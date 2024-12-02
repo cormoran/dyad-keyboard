@@ -1,0 +1,11 @@
+file_format: "1"
+id: dyad
+name: Dyad
+type: shield
+url: https://github.com/cormoran/dyad-keyboard/
+requires: [seeed_xiao]
+features:
+  - keys
+siblings:
+  - dyad_left
+  - dyad_right

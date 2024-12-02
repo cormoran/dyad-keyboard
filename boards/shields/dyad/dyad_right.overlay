@@ -1,0 +1,78 @@
+/*
+ * XIAO BLE pin mapping
+ * D0=battery voltage
+ * D1=ROW0
+ * D2=ROW1
+ * D3=ROW2
+ * D4=SDIO
+ * D5=SCK
+ * D6=COL0
+ * D7=COL1
+ * D8=COL2
+ * D9=COL3
+ * D10=COL4
+ * NFC1=ROW3 (gpio0 9)
+ * NFC2=MOTION (gpio0 10)
+ */
+
+#include "dyad.dtsi"
+#include <dt-bindings/input/input-event-codes.h>
+// The matrix transform for this board is 6 columns over because the left half is 5 columns wide according to the matrix.
+&default_transform {
+    col-offset = <5>;
+};
+
+&kscan0 {
+    row-gpios
+    = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    , <&gpio0  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    // , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    ;
+    col-gpios
+    = <&xiao_d  6 GPIO_ACTIVE_HIGH> // col5 in the schematic
+    , <&xiao_d  7 GPIO_ACTIVE_HIGH> // col6 in the schematic
+    , <&xiao_d  8 GPIO_ACTIVE_HIGH> // col7 in the schematic
+    , <&xiao_d  9 GPIO_ACTIVE_HIGH> // col8 in the schematic
+    , <&xiao_d 10 GPIO_ACTIVE_HIGH> // col9 in the schematic
+    ;
+};
+
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>, // xiao D5, see posix_seeed_xiao.overlay in zmk source
+            <NRF_PSEL(SPIM_MOSI, 0, 4)>, // xiao D4
+            <NRF_PSEL(SPIM_MISO, 0, 4)>;
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 4)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi0 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    trackball: trackball@0 {
+        status = "okay";
+        compatible = "pixart,pmw3610";
+        reg = <0>;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+
+        scroll-layers = <2>;
+        automouse-layer = <1>;
+    };
+};

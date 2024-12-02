@@ -1,0 +1,42 @@
+
+if SHIELD_DYAD_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Dyad KB"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config PMW3610
+    default y
+config PMW3610_DISABLE_NCS
+    default y
+config ZMK_MOUSE
+    default y
+
+choice PMW3610_ORIENTATION
+    default PMW3610_ORIENTATION_90
+endchoice
+
+config PMW3610_SCROLL_TICK
+    default 40
+config PMW3610_SMART_ALGORITHM
+    default n
+
+config PMW3610_INVERT_Y
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+   default y
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+   default y
+
+endif
+
+if SHIELD_DYAD_LEFT || SHIELD_DYAD_RIGHT
+
+config ZMK_SPLIT
+    default y
+config ZMK_BATTERY_REPORTING
+    default y
+endif
