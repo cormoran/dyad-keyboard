@@ -14,12 +14,18 @@ config PMW3610_DISABLE_NCS
 config ZMK_MOUSE
     default y
 
+config PMW3610_CPI
+    default 1600
+
+config PMW3610_CPI_DIVIDOR
+    default 2
+
 choice PMW3610_ORIENTATION
     default PMW3610_ORIENTATION_90
 endchoice
 
 config PMW3610_SCROLL_TICK
-    default 40
+    default 60
 config PMW3610_SMART_ALGORITHM
     default n
 
@@ -27,9 +33,9 @@ config PMW3610_INVERT_Y
     default y
 
 config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
-   default y
+    default y
 config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
-   default y
+    default y
 
 endif
 
