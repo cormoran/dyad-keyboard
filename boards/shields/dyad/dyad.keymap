@@ -88,16 +88,22 @@
         // DISC<X>: disconnect from bluetooth X
         config_layer {
             // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            // | toggle  |       |     |     |     |     |     |     |     |     |     |     |     |
-            // | clear   | BT0   | BT1 | BT2 | BT3 | BT4 |     |     |     |     |     |     |     |
-            // |         | DISC 0|   1 |   2 |   3 |  4  |           |     |     |     |     |     |
-            //                         |     |     |     |           |     |     |
+            // | USB mode |       |     |            | Reset | Bootloader | Bootloader | Reset      |                   |     |     |     | studio unlock    |
+            // | BLE mode | BT0   | BT1 | BT2        | BT3   | BT4        |            |            |                   |     |     |     |                  |
+            // |          | DISC 0|   1 |   2        |   3   |  4         |            |            |                   |     |     |     |
+            //                          | battery LED|       |            |            | battery LED| connection LED    |
             bindings = <
-            &out OUT_USB &trans        &trans        &trans        &sys_reset    &bootloader     &bootloader &sys_reset &trans    &trans    &trans    &trans
+            &out OUT_USB &trans        &trans        &trans        &sys_reset    &bootloader     &bootloader &sys_reset &trans    &trans    &trans    &studio_unlock
             &out OUT_BLE &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans      &trans     &trans    &trans    &trans    &trans
             &bt BT_CLR   &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4   &trans      &trans     &trans    &trans    &trans    &trans
             &ind_bat     &trans       &trans                                                                 &ind_bat   &ind_con
             >;
+        };
+        extra1 {
+            status = "reserved";
+        };
+        extra2 {
+            status = "reserved";
         };
     };
 };
