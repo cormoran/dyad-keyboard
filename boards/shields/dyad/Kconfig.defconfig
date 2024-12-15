@@ -11,7 +11,7 @@ config PMW3610
     default y
 config PMW3610_DISABLE_NCS
     default y
-config ZMK_MOUSE
+config ZMK_POINTING
     default y
 
 config PMW3610_CPI
@@ -44,5 +44,7 @@ if SHIELD_DYAD_LEFT || SHIELD_DYAD_RIGHT
 config ZMK_SPLIT
     default y
 config ZMK_BATTERY_REPORTING
+    default y
+config ZMK_STUDIO
     default y
 endif
