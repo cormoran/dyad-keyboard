@@ -31,24 +31,24 @@
     };
     macros {
         ZMK_MACRO(bt_switch_0,
-            wait-ms = <100>;
-            bindings = <&bt BT_SEL 0>, <&bt BT_DISC 1>, <&bt BT_DISC 2>, <&bt BT_DISC 3>, <&bt BT_DISC 4>;
+            wait-ms = <50>;
+            bindings = <&bt BT_SEL 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4>;
         )
         ZMK_MACRO(bt_switch_1,
-            wait-ms = <100>;
-            bindings = <&bt BT_SEL 1 &bt BT_DISC 0 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4>;
+            wait-ms = <50>;
+            bindings = <&bt BT_SEL 1 &bt BT_DISC 0 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4 &bt BT_DISC 0 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4>;
         )
         ZMK_MACRO(bt_switch_2,
-            wait-ms = <100>;
-            bindings = <&bt BT_SEL 2 &bt BT_DISC 1 &bt BT_DISC 0 &bt BT_DISC 3 &bt BT_DISC 4>;
+            wait-ms = <50>;
+            bindings = <&bt BT_SEL 2 &bt BT_DISC 1 &bt BT_DISC 0 &bt BT_DISC 3 &bt BT_DISC 4 &bt BT_DISC 1 &bt BT_DISC 0 &bt BT_DISC 3 &bt BT_DISC 4>;
         )
         ZMK_MACRO(bt_switch_3,
-            wait-ms = <100>;
-            bindings = <&bt BT_SEL 3 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 0 &bt BT_DISC 4>;
+            wait-ms = <50>;
+            bindings = <&bt BT_SEL 3 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 0 &bt BT_DISC 4 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 0 &bt BT_DISC 4>;
         )
         ZMK_MACRO(bt_switch_4,
-            wait-ms = <100>;
-            bindings = <&bt BT_SEL 4 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 0>;
+            wait-ms = <50>;
+            bindings = <&bt BT_SEL 4 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 0 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 0>;
         )
     };
 
