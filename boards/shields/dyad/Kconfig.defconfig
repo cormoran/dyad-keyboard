@@ -36,7 +36,8 @@ config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
     default y
 config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
     default y
-
+config ZMK_STUDIO
+    default y
 endif
 
 if SHIELD_DYAD_LEFT || SHIELD_DYAD_RIGHT
@@ -44,7 +45,5 @@ if SHIELD_DYAD_LEFT || SHIELD_DYAD_RIGHT
 config ZMK_SPLIT
     default y
 config ZMK_BATTERY_REPORTING
-    default y
-config ZMK_STUDIO
     default y
 endif

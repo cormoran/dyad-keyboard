@@ -4,14 +4,12 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: cormoran
       url-base: https://github.com/cormoran
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
     - name: caksoylar
       url-base: https://github.com/caksoylar
   projects:
     - name: zmk
-      remote: cormoran
-      revision: pointers-move-scroll
+      remote: zmkfirmware
+      revision: v0.1.0
       import: app/west.yml
     - name: zmk-pmw3610-driver-without-ncs
       remote: cormoran
