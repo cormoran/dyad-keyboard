@@ -9,7 +9,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.1.0
+      revision: d0016b34f88b76bd0c1fb5964bbae9d1916dcf76
       import: app/west.yml
     - name: zmk-pmw3610-driver-without-ncs
       remote: cormoran
