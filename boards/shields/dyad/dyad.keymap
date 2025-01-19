@@ -70,10 +70,14 @@
         // enabled during using trackball
         trackball_layer {
             bindings = <
+            // 0 - 11
             &trans      &trans    &trans &trans   &trans   &trans          &none     &mo LOWER &mo LOWER  &none     &none    &none
-            &trans      &trans    &trans &trans   &trans   &trans          &mkp LCLK &mkp LCLK &mkp MCLK  &mkp RCLK &kp RALT &none
-            &trans      &trans    &trans &trans   &trans   &trans          &none     &mkp MB4 &mkp MB5    &none     &none    &none
-            &mo DEFAULT &mo LOWER &trans                                             &none     &mo DEFAULT
+            // 12 - 23
+            &trans      &trans    &trans &trans   &trans   &trans          &mkp LCLK &mkp LCLK &mkp MCLK  &mkp RCLK &kp RCMD &kp RALT
+            // 24 - 35
+            &trans      &trans    &trans &trans   &trans   &trans          &none     &mkp MB4  &mkp MB5    &none     &none    &none
+            // 36 -
+            &kp LCMD    &mo LOWER &kp LALT                                           &trans    &trans
             >;
         };
         // enabled by LOWER in default_layer

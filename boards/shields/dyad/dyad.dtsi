@@ -1,4 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/input/input-event-codes.h>
 #include "dyad-layouts.dtsi"
 / {
     chosen {
@@ -31,6 +32,14 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&zip_temp_layer 1 500>;
+    };
+
+    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <500>;
+        excluded-positions = <7 8 18 19 20 21 22 23 31 32 36 37 38>;
     };
 
     aliases {
